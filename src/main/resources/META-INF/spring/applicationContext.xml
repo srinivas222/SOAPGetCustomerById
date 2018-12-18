@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:camel="http://cxf.apache.org/transports/camel"
+	xmlns:cxf="http://camel.apache.org/schema/cxf"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://cxf.apache.org/transports/camel http://cxf.apache.org/transports/camel.xsd
+		http://camel.apache.org/schema/cxf http://camel.apache.org/schema/cxf/camel-cxf.xsd">
+
+<cxf:cxfEndpoint id="custTest" address="/customer/learn" serviceClass="com.customer.CustomerEndpoint" wsdlURL="/wsdl/test.wsdl"
+					endpointName="ws:CustomerEndpoint"
+            serviceName="ws:CustomerEndpointService"
+        xmlns:ws="http://customer.com" />
+		
+<!-- </cxf:cxfEndpoint> -->
+<!-- <import resource="common.xml"/> -->
+<bean id="datasource"
+class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+<property name="driverClassName" value="com.mysql.jdbc.Driver"></property>
+<property name="url" value="jdbc:mysql://localhost:3306/srinivas"></property>
+<property name="username" value="root"></property>
+<property name="password" value="srinivas@123"></property>
+</bean>
+
+<!-- <bean id="jdbcComponent" class="org.apache.camel.component.jdbc.JdbcComponent">
+<property name="dataSource" value="datasource"></property>
+</bean> -->
+</beans>
